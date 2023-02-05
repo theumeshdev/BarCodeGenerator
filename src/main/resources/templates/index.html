@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>BarCode</title>
+</head>
+<body>
+	<h2 style="text-align: center;color: white;background-color: orange;">BarCode Example</h2>
+	<table width="70%" border="1" style="margin-left: 15%; margin-top: 10px; border-collapse: collapse;">
+		<tr style="background-color: red; color: white;">
+			<th> ID </th>
+			<th> NAME </th>
+			<th> ADDRESS </th>
+			<th> AGE </th>
+			<th>BarCode</th>
+		</tr>
+		<tr th:each="tab : ${data}">
+			<td th:text="${tab.id}"/>
+			<td th:text="${tab.name}"/>
+			<td th:text="${tab.address}"/>
+			<td th:text="${tab.age}"/>
+			<td style="padding-top: 5px; width: 200px;">
+				<img th:src="@{'/barcode/'+${tab.id + tab.name + tab.address}}">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
